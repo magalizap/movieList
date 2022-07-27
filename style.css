@@ -1,0 +1,75 @@
+body{
+    background-color: #191c1f;
+    color: #fff;
+}
+
+
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 3em;
+    font-weight:bold;
+    color: #079992;
+    margin-bottom: 1em;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 5em;
+}
+
+.sumarPeli{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+input{
+    width: 15%;
+    background-color: antiquewhite;
+    border-radius: 4px;
+    border-color: antiquewhite;
+    color: black;
+}
+
+.sumarCategoria{
+    display: flex;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    margin-bottom: 10px; 
+}
+
+.boton{
+    background-color: #b71540;
+    border-radius: 4px;
+    border-color: #b71540;
+    color: white;
+    width: 12%;
+    height: 2em;
+    margin-bottom: 2em;
+    margin-top: 1em;
+    text-align: center;
+    font-size: 1em;
+}
+
+
+.selector{
+    background-color: #b8e994;
+    border-radius: 4px;
+    border-color: #b8e994;
+    color: black;
+    margin-right: 2em;
+    margin-top: 1em;
+    height: 2em;
+}
+.ubicar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.empty{
+    display: none;
+}
