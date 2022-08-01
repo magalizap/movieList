@@ -1,14 +1,17 @@
 body{
-    background-color: #191c1f;
+    background-image: url(img/cinema-background-concept-vector.jpg);
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
     color: #fff;
+    
 }
 
 
 h1{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 3em;
+    font-family: 'Bebas Neue', capital letter;
+    font-size: 5em;
     font-weight:bold;
-    color: #079992;
+    color: #fff;
     margin-bottom: 1em;
 }
 
@@ -16,6 +19,11 @@ h1{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    border: 1px solid #fff;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
     text-align: center;
     margin-top: 5em;
 }
