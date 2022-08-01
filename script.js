@@ -44,7 +44,7 @@ formPelis.addEventListener("submit", (e) =>{
     // Mostramos las peliculas agregadas a la lista
     console.log(movies)
 
-    const datosStorage = JSON.parse(localStorage.getItem("Movies"))
+    const datosStorage = JSON.parse(localStorage.getItem("Movies")) ?? []
 
     mostrar.innerHTML = ""
     
@@ -61,14 +61,10 @@ formPelis.addEventListener("submit", (e) =>{
         </div>
         
         `
-        if(movies.length === 0){
-            listaVacia.classList.remove("empty")
-                
-        }else{
-            listaVacia.classList.add("empty")
-        }
 
+        movies.length === 0 &&  listaVacia.classList.remove("empty")
 
+        
     })
         // eliminamos la tarea de la lista
     datosStorage.forEach((movie, indice) => {
@@ -84,14 +80,9 @@ formPelis.addEventListener("submit", (e) =>{
 
             console.log(movies)
 
-            if(movies.length === 0){
-                listaVacia.classList.remove("empty")
-                    
-            }else{
-                listaVacia.classList.add("empty")
-            }
+            movies.length === 0 &&  listaVacia.classList.remove("empty")
     
-            
+
     
         })
     
