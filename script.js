@@ -101,12 +101,13 @@ lista.addEventListener("click", () =>{
     movies.length === 0 ?  listaVacia.classList.remove("empty") : listaVacia.classList.add("empty")
     const datosStorage = JSON.parse(localStorage.getItem("Movies")) ?? []
     datosStorage.forEach((movie, indice) => {
+        let {nombrePeli, categoria, plataforma} = movie //Desestructuración de código
         mostrar.innerHTML += `
         <div id="pelis${indice}" class="card" style="width: 18rem; margin: 1em">
             <div class="card-body">
-            <h5 class="card-title text-dark" >${movie.nombrePeli}</h5>
-            <h6 class="card-text text-dark">Categoría: ${movie.categoria}</h6>
-            <h6 class="card-text text-dark">Ver en: ${movie.plataforma}</h6>
+            <h5 class="card-title text-dark" >${nombrePeli}</h5>
+            <h6 class="card-text text-dark">Categoría: ${categoria}</h6>
+            <h6 class="card-text text-dark">Ver en: ${plataforma}</h6>
             <a href="#" class="btn btn-secondary">Eliminar</a>
             </div>
         </div>
