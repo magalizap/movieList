@@ -44,7 +44,8 @@ formPelis.addEventListener("submit", (e) =>{
     // Mostramos las peliculas agregadas a la lista
     console.log(movies)
 
-    const datosStorage = JSON.parse(localStorage.getItem("Movies")) ?? []
+    
+    const datosStorage = JSON.parse(localStorage.getItem("Movies")) ?? []   //operador nullish
 
     mostrar.innerHTML = ""
     
@@ -61,12 +62,13 @@ formPelis.addEventListener("submit", (e) =>{
         </div>
         
         `
-
-        movies.length === 0 &&  listaVacia.classList.remove("empty")
+        
+        movies.length === 0 ?  listaVacia.classList.remove("empty") : listaVacia.classList.add("empty") //operador terneario
 
         
     })
-        // eliminamos la tarea de la lista
+    
+    // eliminamos la tarea de la lista
     datosStorage.forEach((movie, indice) => {
 
         const eliminar = document.getElementById(`pelis${indice}`).lastElementChild.lastElementChild
@@ -80,7 +82,7 @@ formPelis.addEventListener("submit", (e) =>{
 
             console.log(movies)
 
-            movies.length === 0 &&  listaVacia.classList.remove("empty")
+            movies.length === 0 ?  listaVacia.classList.remove("empty") : listaVacia.classList.add("empty")
     
 
     
@@ -94,27 +96,10 @@ formPelis.addEventListener("submit", (e) =>{
 })
 
 
-// OPERADOR SPREAD 
-
-/*const guardarStorage = structuredClone(datosStorage)
-console.log(guardarStorage)
-
-const formPelis2 = structuredClone({
-    formPelis,
-    
-        // eliminamos la tarea de la lista
-
-    
-})*/
-
-
-
-
-
 lista.addEventListener("click", () =>{
 
-
-    const datosStorage = JSON.parse(localStorage.getItem("Movies"))
+    movies.length === 0 ?  listaVacia.classList.remove("empty") : listaVacia.classList.add("empty")
+    const datosStorage = JSON.parse(localStorage.getItem("Movies")) ?? []
     datosStorage.forEach((movie, indice) => {
         mostrar.innerHTML += `
         <div id="pelis${indice}" class="card" style="width: 18rem; margin: 1em">
@@ -128,7 +113,10 @@ lista.addEventListener("click", () =>{
         
         `
 
+
     })
+
+
 })
 
 verListado.addEventListener("click", () =>{ // Descifrar cómo mostrar solo las cards que aparecen filtradas por categoría
@@ -136,10 +124,10 @@ verListado.addEventListener("click", () =>{ // Descifrar cómo mostrar solo las 
     const filtrado = document.getElementById("filtrado").value
     movies.filter(filtrado => filtrado.value)
 
-    const datosStorage = JSON.parse(localStorage.getItem("Movies"))
+    const datosStorage = JSON.parse(localStorage.getItem("Movies")) ?? []
     datosStorage.filter((movie, indice) => {
         filtrado.innerHTML +=  `
-        <div id="pelis${indice.value}" class="card" style="width: 18rem; margin: 1em">
+        <div id="pelis${indice}" class="card" style="width: 18rem; margin: 1em">
             <div class="card-body">
             <h5 class="card-title text-dark" >${movie.nombrePeli}</h5>
             <h6 class="card-text text-dark">Categoría: ${movie.categoria}</h6>
@@ -173,7 +161,3 @@ verListado.addEventListener("click", () =>{ // Descifrar cómo mostrar solo las 
 
 
 
-/**
- *     
- *     
- */
