@@ -31,7 +31,7 @@ formPelis.addEventListener("submit", (e) =>{
     const categoria = document.getElementById("categoria").value
     const plataforma = document.getElementById("plataforma").value
     //creamos el objeto movie
-    const movie = new Movies (nombrePeli, categoria, plataforma)
+    const movie = new Movies (nombrePeli,  categoria, plataforma)
     // agregamos los datos al array 
     movies.push(movie)
     // guardamos en el localSotage
@@ -51,29 +51,36 @@ formPelis.addEventListener("submit", (e) =>{
     
     datosStorage.forEach((movie, indice) => {
 
+        let {nombrePeli, categoria, plataforma} = movie //Desestructuración de código
+
         mostrar.innerHTML += `
         <div id="pelis${indice}" class="card" style="width: 18rem; margin: 1em">
             <div class="card-body">
-            <h5 class="card-title text-dark" >${movie.nombrePeli}</h5>
-            <h6 class="card-text text-dark">Categoría: ${movie.categoria}</h6>
-            <h6 class="card-text text-dark">Ver en: ${movie.plataforma}</h6>
+            <h5 class="card-title text-dark" >${nombrePeli}</h5>
+            <h6 class="card-text text-dark">Categoría: ${categoria}</h6>
+            <h6 class="card-text text-dark">Ver en: ${plataforma}</h6>
             <a href="#" class="btn btn-secondary">Eliminar</a>
             </div>
         </div>
         
         `
-        
-        movies.length === 0 ?  listaVacia.classList.remove("empty") : listaVacia.classList.add("empty") //operador terneario
+        movies.length === 0 ?  listaVacia.classList.remove("empty") : listaVacia.classList.add("empty")
+
+       
+
 
         
     })
-    
-    // eliminamos la tarea de la lista
-    datosStorage.forEach((movie, indice) => {
+       
+    movies.forEach((movie, indice)=>{
 
+        // eliminamos la tarea de la lista
         const eliminar = document.getElementById(`pelis${indice}`).lastElementChild.lastElementChild
-        
-        eliminar.addEventListener("click", ()=>{
+
+
+        eliminar.addEventListener("click", ()=> {
+            
+            movies.splice(movies.indexOf(datosStorage,1))
 
             document.getElementById(`pelis${indice}`).remove()
             movies.splice(indice,1)
@@ -82,25 +89,24 @@ formPelis.addEventListener("submit", (e) =>{
 
             console.log(movies)
 
+
+
             movies.length === 0 ?  listaVacia.classList.remove("empty") : listaVacia.classList.add("empty")
-    
 
-    
+
         })
-    
-    
     })
-
-
-    
 })
+
 
 
 lista.addEventListener("click", () =>{
 
-    movies.length === 0 ?  listaVacia.classList.remove("empty") : listaVacia.classList.add("empty")
     const datosStorage = JSON.parse(localStorage.getItem("Movies")) ?? []
+    mostrar.innerHTML = ""
+    
     datosStorage.forEach((movie, indice) => {
+        
         let {nombrePeli, categoria, plataforma} = movie //Desestructuración de código
         mostrar.innerHTML += `
         <div id="pelis${indice}" class="card" style="width: 18rem; margin: 1em">
@@ -113,26 +119,39 @@ lista.addEventListener("click", () =>{
         </div>
         
         `
-
+        movies.length === 0 ?  listaVacia.classList.remove("empty") : listaVacia.classList.add("empty")
 
     })
 
 
 })
 
+
+
+
+
+
+
+
+
+
+
 verListado.addEventListener("click", () =>{ // Descifrar cómo mostrar solo las cards que aparecen filtradas por categoría
 
+    mostrar.innerHTML = ""
     const filtrado = document.getElementById("filtrado").value
     movies.filter(filtrado => filtrado.value)
 
     const datosStorage = JSON.parse(localStorage.getItem("Movies")) ?? []
     datosStorage.filter((movie, indice) => {
-        filtrado.innerHTML +=  `
+
+        let {nombrePeli,  categoria, plataforma} = movie //Desestructuración de código
+        mostrar.innerHTML +=  `
         <div id="pelis${indice}" class="card" style="width: 18rem; margin: 1em">
             <div class="card-body">
-            <h5 class="card-title text-dark" >${movie.nombrePeli}</h5>
-            <h6 class="card-text text-dark">Categoría: ${movie.categoria}</h6>
-            <h6 class="card-text text-dark">Ver en: ${movie.plataforma}</h6>
+            <h5 class="card-title text-dark" >${nombrePeli}</h5>
+            <h6 class="card-text text-dark">Categoría: ${categoria}</h6>
+            <h6 class="card-text text-dark">Ver en: ${plataforma}</h6>
             <a href="#" class="btn btn-secondary">Eliminar</a>
             </div>
         </div>
