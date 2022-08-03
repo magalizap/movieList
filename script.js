@@ -44,11 +44,16 @@ formPelis.addEventListener("submit", (e) =>{
     // Mostramos las peliculas agregadas a la lista
     console.log(movies)
 
+    mostrarLista(movies)
     
+}) 
+
+
+ 
+const mostrarLista = (movies) =>{
     const datosStorage = JSON.parse(localStorage.getItem("Movies")) ?? []   //operador nullish
 
     mostrar.innerHTML = ""
-    
     datosStorage.forEach((movie, indice) => {
 
         let {nombrePeli, categoria, plataforma} = movie //Desestructuración de código
@@ -66,24 +71,20 @@ formPelis.addEventListener("submit", (e) =>{
         `
         movies.length === 0 ?  listaVacia.classList.remove("empty") : listaVacia.classList.add("empty")
 
-       
-
-
-        
     })
        
-    movies.forEach((movie, indice)=>{
+    datosStorage.forEach((movie, indice)=>{
 
         // eliminamos la tarea de la lista
         const eliminar = document.getElementById(`pelis${indice}`).lastElementChild.lastElementChild
 
 
         eliminar.addEventListener("click", ()=> {
-            
-            movies.splice(movies.indexOf(datosStorage,1))
 
             document.getElementById(`pelis${indice}`).remove()
-            movies.splice(indice,1)
+            movies.splice(movies.indexOf(indice), 1)
+
+            
             localStorage.setItem("Movies", JSON.stringify(movies))
             console.log(`${movie.nombrePeli} Fue eliminada de la lista`)
 
@@ -96,41 +97,10 @@ formPelis.addEventListener("submit", (e) =>{
 
         })
     })
-})
+}
 
 
-
-lista.addEventListener("click", () =>{
-
-    const datosStorage = JSON.parse(localStorage.getItem("Movies")) ?? []
-    mostrar.innerHTML = ""
-    
-    datosStorage.forEach((movie, indice) => {
-        
-        let {nombrePeli, categoria, plataforma} = movie //Desestructuración de código
-        mostrar.innerHTML += `
-        <div id="pelis${indice}" class="card" style="width: 18rem; margin: 1em">
-            <div class="card-body">
-            <h5 class="card-title text-dark" >${nombrePeli}</h5>
-            <h6 class="card-text text-dark">Categoría: ${categoria}</h6>
-            <h6 class="card-text text-dark">Ver en: ${plataforma}</h6>
-            <a href="#" class="btn btn-secondary">Eliminar</a>
-            </div>
-        </div>
-        
-        `
-        movies.length === 0 ?  listaVacia.classList.remove("empty") : listaVacia.classList.add("empty")
-
-    })
-
-
-})
-
-
-
-
-
-
+ 
 
 
 
