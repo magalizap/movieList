@@ -42,18 +42,19 @@ formPelis.addEventListener("submit", (e) =>{
 
 
     // Mostramos las peliculas agregadas a la lista
-    console.log(movies)
+    console.table(movies)
 
     mostrarLista(movies)
-    
+
 }) 
 
 
  
 const mostrarLista = (movies) =>{
+    mostrar.innerHTML = ""
     const datosStorage = JSON.parse(localStorage.getItem("Movies")) ?? []   //operador nullish
 
-    mostrar.innerHTML = ""
+
     datosStorage.forEach((movie, indice) => {
 
         let {nombrePeli, categoria, plataforma} = movie //Desestructuración de código
@@ -84,11 +85,10 @@ const mostrarLista = (movies) =>{
             document.getElementById(`pelis${indice}`).remove()
             movies.splice(movies.indexOf(indice), 1)
 
-            
             localStorage.setItem("Movies", JSON.stringify(movies))
             console.log(`${movie.nombrePeli} Fue eliminada de la lista`)
 
-            console.log(movies)
+            console.table(movies)
 
 
 
@@ -98,9 +98,6 @@ const mostrarLista = (movies) =>{
         })
     })
 }
-
-
- 
 
 
 
