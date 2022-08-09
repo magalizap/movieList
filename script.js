@@ -43,6 +43,7 @@ formPelis.addEventListener("submit", (e) =>{
 
     mostrarLista(movies)
 
+    // incorporamos librería tostify para que figure un aviso cada vez que agregamos una nueva película a la lista
 
     Toastify({
         text: "Agregaste una nueva peli a la lista",
@@ -167,7 +168,7 @@ function seleccionarCategoria(){
     const datosStorage = JSON.parse(localStorage.getItem("movies")) ?? []  
 
     datosStorage.forEach((movie, indice) =>{
-        
+
         let filtrado = document.getElementById("filtrado")
         let categoriaElegida = filtrado.value
         let {nombrePeli, plataforma} = movie
