@@ -3,6 +3,7 @@ body{
     background-size: 100vw 100vh;
     background-attachment: fixed;
     color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     
 }
 
@@ -20,9 +21,8 @@ body{
 }
 
 .sumarPeli{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1em;
-    margin-bottom: 10px;
+  font-size: 1em;
+  margin-bottom: 10px;
 }
 
 input{
@@ -36,11 +36,10 @@ input{
 .sumarCategoria{
     display: flex;
     justify-content: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1em;
     margin-bottom: 10px; 
 }
-
+/*
 .boton{
     background-color: #b71540;
     border-radius: 4px;
@@ -52,13 +51,12 @@ input{
     margin-top: 1em;
     text-align: center;
     font-size: 1em;
-}
+}*/
 
 
 .selector{
-    background-color: #b8e994;
+    background-color: rgb(55, 255, 139);
     border-radius: 4px;
-    border-color: #b8e994;
     color: black;
     margin-right: 2em;
     margin-top: 1em;
@@ -124,3 +122,72 @@ input{
     filter: drop-shadow(0 0 23px var(--animation-color))
   }
 
+
+/**Estilos de los botones
+
+/* From uiverse.io by @satyamchaudharydev */
+/* inspired form gumroad website */
+.boton {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  --bg: #021120;
+  --hover-bg: #37FF8B;
+  --hover-text: #021120;
+  color: #fff;
+  border: 1px solid var(--bg);
+  border-radius: 4px;
+  padding: 0.8em 2em;
+  background: var(--bg);
+  transition: 0.2s;
+}
+  
+.boton:hover {
+  color: var(--hover-text);
+  transform: translate(-0.25rem,-0.25rem);
+  background: var(--hover-bg);
+  box-shadow: 0.25rem 0.25rem var(--bg);
+}
+  
+.boton:active {
+  transform: translate(0);
+  box-shadow: none;
+}
+
+.pelis{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-left: 10%;
+}
+
+.cards{
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 80%;
+  height: 90%;
+  padding: 20px;
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+ .img{
+  width: 60%;
+  height: 90%;
+  width: 90%;
+  height: 50%;
+  margin-bottom: 20px;
+}
+
+.puntuacion{
+  width: 25%;
+  background-color: #37FF8B;
+  font-size: 1em;
+  margin-left: 80%;
+
+  padding: 5px;
+  border-radius: 20px;
+  color: black;
+}
+
+.catalogo{
+  margin-top: 2em;
+}

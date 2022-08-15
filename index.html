@@ -30,8 +30,8 @@
             <div class="sumarCategoria">
                 <div >
                     <label for="nombreCategoria">Definir categoria:</label>
-                    <select name="Categoria:" id="categoria" class="selector">
-                        <option selected>categorías</option>
+                    <select name="Categoria:" id="categoria" class="selector"required>
+                        <option selected disabled>Categorías</option>
                         <option value="Suspenso">Suspenso</option>
                         <option value="Drama">Drama</option>
                         <option value="Comedia">Comedia</option>
@@ -44,8 +44,8 @@
                 </div>
                 <div>
                     <label for="nombreCategoria">Donde ver:</label>
-                    <select name="Categoria:" id="plataforma" class="selector">
-                        <option selected>Plataformas</option>
+                    <select name="Categoria:" id="plataforma" class="selector"required>
+                        <option selected disabled>Plataformas</option>
                         <option value="Netflix">Netflix</option>
                         <option value="PrimeVideo">Prime Video</option>
                         <option value="DisneyPlus">Disney +</option>
@@ -67,14 +67,14 @@
             <p>No tienes peliculas en tu lista</p>
         </div>
 
-        <div id="mostrar" class="row"></div>
+        
         
         <div class="ubicar" id="verListado">
            <button id="botonVerPelis" class="boton">Mostrar Listado</button>
            <div>
                 <label for="nombreCategoria">Filtrar por categoría:</label>
                 <select name="Categoria:" id="filtrado" class="selector">
-                    <option selected>Categorías</option>
+                    <option selected disabled>Categorías</option>
                     <option value="Suspenso">Suspenso</option>
                     <option value="Drama">Drama</option>
                     <option value="Comedia">Comedia</option>
@@ -87,6 +87,13 @@
                 <div id="mostrarFiltrado" class="row"></div>
             </div>
         </div>
+        <div id="mostrar" class="row"></div>
+        <h1>¿No tienes películas en mente?</h1>
+        <button id="verCatalogo"  type="submit" class="boton">Ver catalogo</button>
+        <div class="catalogo" id="catalogo">
+            <div class="pelis" id="pelis"></div>
+        </div>
+
     </div>
 
 
