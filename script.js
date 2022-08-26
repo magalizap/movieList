@@ -77,7 +77,7 @@ formPelis.addEventListener("submit", (e) => {
         onClick: function () { } // Callback after click
     }).showToast();
 
-
+    listaVacia.classList.add("empty")
 })
 
 
@@ -101,17 +101,16 @@ const mostrarLista = (movies) => {
             let { nombrePeli, categoria, plataforma } = movie //Desestructuración de código
 
             mostrar.innerHTML += `
-            <div id="pelis${indice}" class="card" style="width: 18rem; margin: 1em">
-            <div class="card-body">
-            <h5 class="card-title text-dark" >${nombrePeli}</h5>
-            <h6 class="card-text text-dark">Categoría: ${categoria}</h6>
-            <h6 class="card-text text-dark">Ver en: ${plataforma}</h6>
-            <a href="#" class="btn btn-secondary">Eliminar</a>
+            <div id="pelis${indice}" class="cards2">
+                <div>
+                <h5>${nombrePeli}</h5>
+                <h6>${categoria}</h6>
+                <h6>${plataforma}</h6>
+                <button class="eliminar">Eliminar</button>
+                </div>
             </div>
-            </div>
-    
-    
             `
+
             movies.length === 0 ? listaVacia.classList.remove("empty") : listaVacia.classList.add("empty")
 
         })
@@ -121,8 +120,11 @@ const mostrarLista = (movies) => {
             const eliminar = document.getElementById(`pelis${indice}`).lastElementChild.lastElementChild
             eliminar.addEventListener("click", () => {
                 document.getElementById(`pelis${indice}`).remove()
-                //const moviesEliminadas = movies.splice(movies.indexOf(eliminar))
-                const moviesEliminadas = movies.splice(indice, 1)
+                //encuentro el indice de la película a eliminar
+                const moviesEliminadas = movies.indexOf(movie)
+                //elimino la película
+                movies.splice(moviesEliminadas, 1)
+
 
                 console.log(moviesEliminadas)
 
@@ -163,17 +165,16 @@ filtrado.addEventListener("change", () => {
         let { nombrePeli, categoria, plataforma } = movie //Desestructuración de código
 
         mostrar.innerHTML += `
-        <div id="pelis${indice}" class="card" style="width: 18rem; margin: 1em">
-            <div class="card-body">
-                <h5 class="card-title text-dark" >${nombrePeli}</h5>
-                <h6 class="card-text text-dark">Categoría: ${categoria}</h6>
-                <h6 class="card-text text-dark">Ver en: ${plataforma}</h6>
-                <a href="#" class="btn btn-secondary">Eliminar</a>
+            <div id="pelis${indice}" class="cards2">
+                <div>
+                <h5>${nombrePeli}</h5>
+                <h6>${categoria}</h6>
+                <h6>${plataforma}</h6>
+                <button class="eliminar">Eliminar</button>
+                </div>
             </div>
-        </div>
-        
-        `
-        movies.length === 0 ? listaVacia.classList.remove("empty") : listaVacia.classList.add("empty")
+            `
+
 
     })
 
@@ -184,8 +185,8 @@ filtrado.addEventListener("change", () => {
         eliminar.addEventListener("click", () => {
 
             document.getElementById(`pelis${indice}`).remove()
-            const moviesEliminadas = movies.splice(movies.indexOf(eliminar))
-            //movies.splice(indice,1)
+            const moviesEliminadas = movies.indexOf(movie)
+            movies.splice(moviesEliminadas, 1)
             console.log(moviesEliminadas)
             localStorage.setItem("movies", JSON.stringify(movies))
             console.log(`${movie.nombrePeli} Fue eliminada de la lista`)
@@ -194,7 +195,6 @@ filtrado.addEventListener("change", () => {
 
 
 
-            movies.length === 0 ? listaVacia.classList.remove("empty") : listaVacia.classList.add("empty")
 
 
         })
