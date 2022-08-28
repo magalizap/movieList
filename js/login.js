@@ -5,7 +5,7 @@ class User2 {
     }
 }
 
-
+//llamamos a los id 
 const usersRegistro = JSON.parse(localStorage.getItem("users")) ?? []
 const users2 = JSON.parse(localStorage.getItem("users2")) ?? []
 const formUserLogin = document.getElementById("formUserLogin")
@@ -16,7 +16,7 @@ const datosIncorrectos = document.getElementById("datosIncorrectos")
 
 formUserLogin.addEventListener("submit", (e) => {
     e.preventDefault()
-
+    //pedimos nombre de usuario y contraseña
     const ingresoName = document.getElementById("ingresoName").value
     const ingresoPass = document.getElementById("ingresoPass").value
 
@@ -25,11 +25,11 @@ formUserLogin.addEventListener("submit", (e) => {
 
 
     formUserLogin.reset()
-
+    // comparamos los datos de registro con los de login
     const encontrarName = usersRegistro.find(users => users.username == ingresoName)
     const encontrarPass = usersRegistro.find(users => users.password == ingresoPass)
 
-
+    // condicional para poder ingresar correctamente
     if (ingresoName == "" || ingresoPass == "") {
         Swal.fire({
             icon: 'error',

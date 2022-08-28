@@ -8,7 +8,7 @@ class Movie {
     }
 }
 
-
+// consultamos los datos en la const movies
 
 const movies = JSON.parse(localStorage.getItem("movies")) ?? []
 
@@ -58,7 +58,6 @@ formPelis.addEventListener("submit", (e) => {
 
 
     // Mostramos las peliculas agregadas a la lista
-    console.log(movies)
 
     mostrarLista(movies)
 
@@ -125,13 +124,9 @@ const mostrarLista = (movies) => {
                 //elimino la película
                 movies.splice(moviesEliminadas, 1)
 
-
-                console.log(moviesEliminadas)
-
+                // guardamos los datos en el localStorage
                 localStorage.setItem("movies", JSON.stringify(movies))
-                console.log(`${movie.nombrePeli} Fue eliminada de la lista`)
-
-
+                
                 movies.length === 0 ? listaVacia.classList.remove("empty") : listaVacia.classList.add("empty")
 
 
@@ -157,7 +152,6 @@ filtrado.addEventListener("change", () => {
     mostrarLista(movies)
     mostrar.innerHTML = ""
 
-    //const pelisFiltradas = movies.filter(categoria => categoria.value == filtrado.value )
     const pelisFiltradas = movies.filter(peli => peli.categoria == filtrado.value)
 
     pelisFiltradas.forEach((movie, indice) => {
@@ -174,6 +168,8 @@ filtrado.addEventListener("change", () => {
                 </div>
             </div>
             `
+
+
 
 
     })
@@ -231,7 +227,7 @@ verCatalogo.addEventListener("click", () => {
     function catalogoMovies(data) {
         catalogo.innerHTML = ""
         data.forEach(movie => {
-            //.then(data => console.log(data))
+
             let { poster_path, original_title, vote_average, overview } = movie
             pelis.innerHTML += `
             <div class="cards">
@@ -244,7 +240,7 @@ verCatalogo.addEventListener("click", () => {
             </div>
             
             `
-            //console.log(original_title, overview, poster_path)
+
 
             catalogo.appendChild(pelis)
         })

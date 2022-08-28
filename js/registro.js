@@ -29,11 +29,10 @@ formUser.addEventListener("submit", (e) => {
     const user = new User(username, email, password, reapetPassword)
     //agregamos los datos al array
     users.push(user)
-    //guardamos los datos en el localStorage
-
 
 
     formUser.reset()
+
     if (username == "", email == "", password == "", reapetPassword == "") {
         Swal.fire({
             icon: 'error',
@@ -48,7 +47,8 @@ formUser.addEventListener("submit", (e) => {
         `
     } else {
         window.location.href = "../pages/movieList.html"
-        localStorage.setItem("users", JSON.stringify(users))
+        localStorage.setItem("users", JSON.stringify(users))// si me permite ingresar, guardo los datos del usuario en el localStorage.
+        
     }
 
 
