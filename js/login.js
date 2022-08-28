@@ -29,7 +29,7 @@ formUserLogin.addEventListener("submit", (e) => {
     const encontrarName = usersRegistro.find(users => users.username == ingresoName)
     const encontrarPass = usersRegistro.find(users => users.password == ingresoPass)
 
-    // condicional para poder ingresar correctamente
+    // condicional para poder ingresar correctamente 
     if (ingresoName == "" || ingresoPass == "") {
         Swal.fire({
             icon: 'error',
