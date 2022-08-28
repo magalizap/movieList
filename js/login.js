@@ -46,7 +46,7 @@ formUserLogin.addEventListener("submit", (e) => {
 
 
     } else if (ingresoName == encontrarName["username"] && ingresoPass == encontrarPass["password"]) {
-        window.location.href = "segunda-preentrega-js/pages/movieList.html"
+        window.location.href = "../pages/movieList.html"
         localStorage.setItem("users2", JSON.stringify(users2))
 
     }
