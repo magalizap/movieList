@@ -1,36 +1,36 @@
 class User2 {
-    constructor(ingresoName, ingresoPass) {
-        this.ingresoName = ingresoName
-        this.ingresoPass = ingresoPass
+    constructor(nameAccess, passAccess) {
+        this.nameAccess = nameAccess
+        this.passAccess = passAccess
     }
 }
 
-//llamamos a los id 
-const usersRegistro = JSON.parse(localStorage.getItem("users")) ?? []
+
+const userSignup = JSON.parse(localStorage.getItem("users")) ?? []
 const users2 = JSON.parse(localStorage.getItem("users2")) ?? []
-const formUserLogin = document.getElementById("formUserLogin")
-const datosIncorrectos = document.getElementById("datosIncorrectos")
+const formUserAccess = document.getElementById("formUserAccess")
+const errorData = document.getElementById("errorData")
 
 
 
 
-formUserLogin.addEventListener("submit", (e) => {
+formUserAccess.addEventListener("submit", (e) => {
     e.preventDefault()
     //pedimos nombre de usuario y contraseña
-    const ingresoName = document.getElementById("ingresoName").value
-    const ingresoPass = document.getElementById("ingresoPass").value
+    const nameAccess = document.getElementById("nameAccess").value
+    const passAccess = document.getElementById("passAccess").value
 
-    const user2 = new User2(ingresoName, ingresoPass)
+    const user2 = new User2(nameAccess, passAccess)
     users2.push(user2)
 
 
-    formUserLogin.reset()
+    formUserAccess.reset()
     // comparamos los datos de registro con los de login
-    const encontrarName = usersRegistro.find(users => users.username == ingresoName)
-    const encontrarPass = usersRegistro.find(users => users.password == ingresoPass)
+    const findName = userSignup.find(users => users.username == nameAccess)
+    const findPass = userSignup.find(users => users.password == passAccess)
 
     // condicional para poder ingresar correctamente 
-    if (ingresoName == "" || ingresoPass == "") {
+    if (nameAccess == "" || passAccess == "") {
         Swal.fire({
             icon: 'error',
             title: 'Por favor, completa todos los campos para poder ingresar',
@@ -39,19 +39,18 @@ formUserLogin.addEventListener("submit", (e) => {
             confirmButtonColor: '#021120'
         })
 
-    } else if (encontrarName == undefined || encontrarPass == undefined) {
-        datosIncorrectos.innerHTML = `
+    } else if (findName == undefined || findPass == undefined) {
+        errorData.innerHTML = `
             <p>Usuario o contraseña incorrectos</p>
             `
 
 
-    } else if (ingresoName == encontrarName["username"] && ingresoPass == encontrarPass["password"]) {
+    } else if (nameAccess == findName["username"] && passAccess == findPass["password"]) {
         window.location.href = "./pages/movieList.html"
         localStorage.setItem("users2", JSON.stringify(users2))
-
+        
     }
 
 
 })
-
 

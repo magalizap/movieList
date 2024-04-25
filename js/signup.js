@@ -11,13 +11,13 @@ const users = JSON.parse(localStorage.getItem("users")) ?? []
 
 //Llamamos a los id
 
-const formUser = document.getElementById("formUser")
-const mensajeError = document.getElementById("mensajeError")
+const formUserSignup = document.getElementById("formUserSignup")
+const errorData = document.getElementById("errorData")
 
 
 
 
-formUser.addEventListener("submit", (e) => {
+formUserSignup.addEventListener("submit", (e) => {
     e.preventDefault()
 
     const username = document.getElementById("username").value
@@ -31,7 +31,7 @@ formUser.addEventListener("submit", (e) => {
     users.push(user)
 
 
-    formUser.reset()
+    formUserSignup.reset()
 
     if (username == "", email == "", password == "", reapetPassword == "") {
         Swal.fire({
@@ -42,7 +42,7 @@ formUser.addEventListener("submit", (e) => {
             confirmButtonColor: '#021120'
         })
     } else if (password != reapetPassword) {
-        mensajeError.innerHTML += `
+        errorData.innerHTML += `
             <p>Las contraseñas no coinciden</p>
         `
     } else {
@@ -53,4 +53,3 @@ formUser.addEventListener("submit", (e) => {
 
 
 })
-

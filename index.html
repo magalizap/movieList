@@ -1,66 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <title>Login</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-
-    <main>
-        <div class="fondoB"></div>
-        <div class="fondo">
-            <button data-text="Awesome" class="button centrar">
+    <main class="container">
+        <img class="img__popcorn" src="./img/cinema-background-concept-vector.jpg" alt="image">
+        <div class="form__content">
+            <button data-text="Awesome" class="movieList">
                 <span class="actual-text">&nbsp;MovieList&nbsp;</span>
                 <span class="hover-text" aria-hidden="true">&nbsp;MovieList&nbsp;</span>
             </button>
 
-            <form class="formUser" id="formUserLogin">
+            <form class="form__access" id="formUserAccess">
                 <p class="title">Inicia sesión con tu cuenta</p>
-                <p id="datosIncorrectos" class="parrafoError"></p>
-                <div class="login">
-                    <label for="username">Username</label>
-                    <input class="datosUser" id="ingresoName" type="text" placeholder="Ingresa tu nombre de usuario">
-                </div>
-                <div class="login">
-                    <label for="password">Password</label>
-                    <input class="datosUser" id="ingresoPass" type="password" placeholder="Ingresa tu contraseña">
-                </div>
-                <div class="alinearYCentrar">
-                    <p>¿No tienes una cuenta?</p>
-                    <a href="pages/registro.html">Regístrate</a>
-                </div>
+                <p id="errorData" class="error__text"></p>
+                <div class="content">
+                    <label for="username">Usuario</label>
+                    <input class="input"  id="nameAccess" type="text" >
 
-                <div>
-                    <input type="submit" value="Login" class="botonLogin">
+                    <label for="password">Contraseña</label>
+                    <input class="input" id="passAccess" type="password" >
                 </div>
-
+                <div class="redirect">
+                    <p class="text">¿No tienes una cuenta?</p>
+                    <a href="pages/signup.html">Regístrate</a>
+                </div>
+                <input type="submit" value="INICIAR SESIÓN" class="submit__btn">
             </form>
         </div>
     </main>
 
-
-
-
-
-
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-        crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.28/dist/sweetalert2.all.min.js"></script>
     <script src="./js/login.js"></script>
 </body>
-
 </html>

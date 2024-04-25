@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Signup</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <main class="container">
+        <img class="img__popcorn" src="../img/cinema-background-concept-vector.jpg" alt="image">
+        <div class="form__content">
+            <button data-text="Awesome" class="movieList">
+                <span class="actual-text">&nbsp;MovieList&nbsp;</span>
+                <span class="hover-text" aria-hidden="true">&nbsp;MovieList&nbsp;</span>
+            </button>
+
+            <form class="form__access" id="formUserSignup">
+                <p class="title">Crea una cuenta</p>
+                <p id="errorData" class="error__text"></p>
+                <div class="content grid">
+                    <div>
+                        <label for="username">Usuario</label>
+                        <input class="input"  id="username" type="text">
+                    </div>
+                    <div>
+                        <label for="username">Correo electrónico</label>
+                        <input class="input" id="email" type="email">
+                    </div>
+                    <div>
+                        <label for="password">Contraseña</label>
+                        <input class="input" id="password" type="password">
+                    </div>
+                    <div>
+                        <label for="password">Repita su contraseña</label>
+                        <input class="input" id="reapetPassword" type="password">
+                    </div>
+                </div>
+                <div class="redirect">
+                    <p class="text">¿Ya tienes una cuenta?</p>
+                    <a href="../index.html">Iniciar sesión</a>
+                </div>
+                <input type="submit" value="CREAR CUENTA" class="submit__btn">
+            </form>
+        </div>
+    </main>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.28/dist/sweetalert2.all.min.js"></script>
+    <script src="../js/signup.js"></script>
+</body>
+</html>
